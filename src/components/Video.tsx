@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Video (embedId: string ) {
+interface Props {
+    embedId: string
+}
+
+export default function Video ({embedId}:Props) {
     return (
         <div className="video-responsive">
             <iframe
@@ -14,5 +18,4 @@ export default function Video (embedId: string ) {
             />
         </div>
     );
-
 }

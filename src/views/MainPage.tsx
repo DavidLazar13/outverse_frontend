@@ -8,11 +8,9 @@ import SearchBar from "../components/SearchBar";
 import Header from "../components/Header";
 
 export default function MainPage() {
-
     const [eventsList, setEventsList] = useState<Event[]>([]);
     const [error, setFetchError] = useState<ApiError | null>();
     const [searchValue, setSearchValue] = useState<string>('');
-
     const debouncedSearchValue = useDebounce<string>(searchValue, 500)
 
     async function getEvents() {

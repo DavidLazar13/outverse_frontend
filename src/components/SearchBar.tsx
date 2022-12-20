@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled from "styled-components";
 
 interface SearchProps {
@@ -7,18 +7,14 @@ interface SearchProps {
 }
 
 export default function ({searchValue, change}:SearchProps) {
-    const [newValue, setNewValue] = useState(searchValue)
 
     function onSearch(e: React.ChangeEvent<HTMLInputElement>){
-        setNewValue(e.target.value)
-        change(newValue)
+        change(e.target.value)
     }
-
-
 
     return(
         <div>
-            <SearchInput value={newValue} onChange={onSearch}></SearchInput>
+            <SearchInput value={searchValue} onChange={onSearch}></SearchInput>
         </div>
     )
 }
