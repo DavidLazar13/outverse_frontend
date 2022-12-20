@@ -2,11 +2,11 @@ import {ApiError, ApiResponse, Event, FullEventResponse} from "./typesApi";
 
 
 class ApiClient {
-  async getEventsList(
+  async getEventsList(searchValue:string
   ): Promise<ApiResponse<Event> | ApiError> {
     try {
       const response = await fetch(
-          'http://code-challenge.outverse.com/events',
+          `http://code-challenge.outverse.com/events?name_like=${searchValue}`,
           {
             headers: {
               "Content-type": "application/json",

@@ -1,21 +1,26 @@
 import React from 'react';
 import MainPage from './views/MainPage';
-import './App.css';
+import styled from "styled-components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EventPage from "./views/EventPage";
 
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <AppContainer>
       <Router>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/event/:id" element={<EventPage />} />
         </Routes>
       </Router>
-    </div>
+    </AppContainer>
   );
 }
 
-export default App;
+const AppContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;

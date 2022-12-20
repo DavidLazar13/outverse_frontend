@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from "react";
 import {ApiError, Event, isApiError} from "../utils/typesApi";
+import { PageContainer } from "../components/styled";
 import missionsApiClient from "../utils/missionsApiClient";
 import EventsList from "../components/EventsList";
+import SearchBar from "../components/SearchBar";
+import Header from "../components/Header";
 
 export default function MainPage() {
 
     const [eventsList, setEventsList] = useState<Event[]>([]);
     const [error, setFetchError] = useState<ApiError | null>();
+    const [searchValue, setSearchValue] = useState<string>('');
 
     async function getEvents() {
-        const response = await missionsApiClient.getEventsList();
+        const response = await missionsApiClient.getEventsList(searchValue);
         if (isApiError(response)) {
             setFetchError(response);
         } else {
@@ -19,10 +23,12 @@ export default function MainPage() {
 
     useEffect(() => {
         getEvents();
-    });
+    }, [searchValue]);
     return(
-        <div>
+        <PageContainer>
+            <Header></Header>
+            <SearchBar searchValue={searchValue} change={setSearchValue}></SearchBar>
             <EventsList eventsList={eventsList} error={error}/>
-        </div>
+        </PageContainer>
     )
 }

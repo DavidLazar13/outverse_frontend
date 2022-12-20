@@ -6,7 +6,6 @@ export type Event = {
    description: string;
 };
 
-
 export type ApiError = {
     message: string;
     isError: true;
@@ -21,7 +20,7 @@ export type FullEventResponse = {
     location: string
     news_url: string
     feature_image :string
-    date: string
+    date: number
     video_url: string
 }
 

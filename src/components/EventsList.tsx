@@ -11,7 +11,7 @@ export default function EventsList({eventsList, error}: PropsEvents){
     return(
         <div>
             {eventsList.map((event) => {
-                return <EventCard event={event}/>;
+                return <EventCard event={event} key={event.id}/>;
             })}
             {error?.message}
         </div>
