@@ -15,7 +15,6 @@
 - Used 2 different 'views' components one for the main page and one for the single event view
 - Basic styling of the components using styled-components
 
-### [Click here to see the Live Demo]([LINK_TO_THE_DEPLOYED_APP])
 
 ## Screenshots
 ![alt text](src/assets/app_screenshot.png)
@@ -27,6 +26,7 @@
 - Create React App for project setup
 - Usehooks
 - Styled-components
+- Jest
 
 ## Setup
 
