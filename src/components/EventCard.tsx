@@ -15,7 +15,9 @@ export default function EventCard({event}:PropsEvent) {
         navigate(`/event/${event.id}`);
     };
     return (
-        <EventCardContainer onClick={onCardClick}>
+        <EventCardContainer
+            data-testid={`event-card-title-${event.id}`}
+            onClick={onCardClick}>
             <EventTitle>{event.name}</EventTitle>
             <EventDescription>{event.description}</EventDescription>
         </EventCardContainer>

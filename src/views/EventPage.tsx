@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import {ApiError, FullEventResponse, isApiError } from "../utils/typesApi";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import missionsApiClient from "../utils/missionsApiClient";
 import PageContainer from "../components/styled";
-import { Player } from 'video-react';
+import youtubeParser from '../utils/youtubeParser';
+import Video from "../components/Video";
 
 export default function EventPage(){
     const { id } = useParams() as { id: string };
@@ -21,6 +22,9 @@ export default function EventPage(){
         });
     }, []);
 
+
+    // const videoId = useMemo(() => youtubeParser(eventData?.video_url as string), [eventData?.video_url]);
+
     return(
         <PageContainer>
             <EventHeader>
@@ -34,7 +38,7 @@ export default function EventPage(){
                 {eventData?.description}
             </EventDescription>
             <SecondaryTitle>Video</SecondaryTitle>
-            <a href={eventData?.video_url}>Watch Here</a>
+
         </PageContainer>
     )
 }
